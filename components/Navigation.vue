@@ -5,16 +5,16 @@
                 <NuxtLink class="logo" to="/">Rentworks.</NuxtLink>
             </span>
             <ul class="navItems">
-                <li>
+                <li v-if="!user">
                     <NuxtLink class="navLink" to="/register">Register</NuxtLink>
                 </li>
-                <li>
+                <li v-if="!user">
                     <NuxtLink class="navLink" to="/login">Login</NuxtLink>
                 </li>
-                <li>
+                <li v-if="user">
                     <NuxtLink class="navLink" to="/rooms">Rooms</NuxtLink>
                 </li>
-                <li class="navLinkContainer">
+                <li v-if="user">
                     <NuxtLink class="navLink" to="/profile">Profile</NuxtLink>
                 </li>
                 <li>
@@ -25,6 +25,14 @@
         </nav>
     </header>
 </template>
+
+<script setup>
+import useAuth from '../composables/useAuth';
+    const {user} = useAuth();
+
+    console.log(user);
+
+</script>
 
 <style scoped>
 .header {
