@@ -2,7 +2,7 @@
     <header class="header">
         <nav class="navigation">
             <span>
-                <NuxtLink class="logo" to="/">Rentworks</NuxtLink>
+                <NuxtLink class="logo" to="/">Rentworks.</NuxtLink>
             </span>
             <ul class="navItems">
                 <li>
@@ -29,19 +29,28 @@
 <style scoped>
 .header {
     padding: 20px 35px;
-    background-color: rgb(89, 89, 89);
+    background-color: transparent;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color: transparent;
 }
 
 .navigation {
     display: flex;
     justify-content: space-between;
+    max-width: 1300px;
+    margin: 0 auto;
+
 }
 
 .logo {
     text-decoration: dashed;
-    color: white;
+    color: #be8836;
     text-transform: uppercase;
     font-size: 20px;
+    font-weight: 600;
 }
 
 .navItems {
@@ -51,7 +60,7 @@
 
 .navLink {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     font-size: 18px;
     padding: 8px 12px;
     background-color: transparent;
@@ -60,7 +69,8 @@
 
 .navLink:hover {
     cursor: pointer;
-    background-color: rgb(109, 109, 109);
+    font-size: 19px;
+    color: rgb(218, 218, 218);
 }
 
 </style>
