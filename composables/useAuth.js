@@ -19,10 +19,10 @@ export default function useAuth() {
 
     const register = (fullName, password, email) => {
         const newUser = new User(fullName, email, password, 'client');
-        allUsers.push(newUser);
+        allUsers.value.push(newUser);
         user.value = newUser;
 
-        console.log(toRaw(allUsers));
+        console.log(toRaw(allUsers.value));
 
     }
 

@@ -4,26 +4,22 @@
         <div class="formContainer">
             <h1 class="heading">Register</h1>
 
-            <form class="form">
+            <form @submit="handleRegister" class="form">
             <div class="inputFields">
                 <label class="label" for="email">Email</label>
-                <input class="input" type="text" name="email" id="email">
+                <input class="input" type="text" name="email" id="email" v-model="email">
             </div>
 
             <div class="inputFields">
                 <label class="label" for="fullName">Full Name</label>
-                <input class="input" type="text" name="fullName" id="fullName">
+                <input class="input" type="text" name="fullName" id="fullName" v-model="fullName">
             </div>
 
             <div class="inputFields">
                 <label class="label" for="password">Password</label>
-                <input class="input" type="password" name="password" id="password">
+                <input class="input" type="password" name="password" id="password" v-model="password">
             </div>
 
-            <div class="inputFields">
-                <label class="label" for="password">Repeat Password</label>
-                <input class="input" type="password" name="password" id="password">
-            </div>
             <div class="btnContainer">
                 <button class="btn">Register</button>
             </div>
@@ -38,6 +34,20 @@
         <div class="bg"></div>
     </div>
 </template>
+
+<script setup>
+const {register} = useAuth();
+const email = ref('');
+const password = ref('');
+const fullName = ref('')
+
+
+const handleRegister = (e) => {
+    e.preventDefault();
+    register(fullName.value, password.value, email.value);
+}
+
+</script>
 
 <style scoped>
     .formContainer {

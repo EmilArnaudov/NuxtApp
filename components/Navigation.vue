@@ -17,7 +17,8 @@
                 <li v-if="user">
                     <NuxtLink class="navLink" to="/profile">Profile</NuxtLink>
                 </li>
-                <li>
+                <li v-if="user">
+                    <p>Hello, {{user.fullName}}</p>
                 </li>
                 <li>
                 </li>
@@ -27,10 +28,10 @@
 </template>
 
 <script setup>
-import useAuth from '../composables/useAuth';
-    const {user} = useAuth();
 
-    console.log(user);
+
+const {user} = useAuth();
+
 
 </script>
 
